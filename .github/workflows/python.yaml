@@ -20,7 +20,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: python3.8
-          path: /python38.txt
+          path: ./python38.txt
   python39:
       runs-on: ubuntu-latest
       strategy:
@@ -38,7 +38,7 @@ jobs:
         - uses: actions/upload-artifact@v3
           with:
             name: python3.9
-            path: /python39.txt
+            path: ./python39.txt
   python310:
     runs-on: ubuntu-latest
     strategy:
@@ -56,4 +56,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: python3.8
-          path: /python310.txt
+          path: ./python310.txt
