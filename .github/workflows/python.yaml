@@ -64,5 +64,5 @@ jobs:
         run: python -c "import sys; print(sys.version)"
       - uses: actions/upload-artifact@v3
         with:
-          name: python3.8
+          name: python3.10
           path: ./build/*
