@@ -5,6 +5,9 @@ on: workflow_dispatch
 jobs:
   python38:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./build
     strategy:
       matrix:
         python-version: ["3.8"]
@@ -23,6 +26,9 @@ jobs:
           path: ./build/*
   python39:
       runs-on: ubuntu-latest
+      defaults:
+        run:
+          working-directory: ./build
       strategy:
         matrix:
           python-version: ["3.9"]
@@ -41,6 +47,9 @@ jobs:
             path: ./build/*
   python310:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./build
     strategy:
       matrix:
         python-version: ["3.10"]
