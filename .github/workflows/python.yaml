@@ -5,34 +5,9 @@ on: workflow_dispatch
 jobs:
   python:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./build
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
-
-    # steps:
-    #   - uses: actions/checkout@v3
-    #   - name: Set up Python ${{ matrix.python-version }}
-    #     uses: actions/setup-python@v4
-    #     with:
-    #       python-version: ${{ matrix.python-version }}
-    #   - name: Display Python version
-    #     run: python -c "import sys; print(sys.version)"
-    #   - name: Install dependencies
-    #     run: |
-    #       python -m pip install --upgrade pip
-    #       pip install pytest
-    #   - name: Test with pytest
-    #     run: pytest tests.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
-    #   - name: Upload pytest test results
-    #     uses: actions/upload-artifact@v3
-    #     with:
-    #       name: pytest-results-${{ matrix.python-version }}
-    #       path: junit/test-results-${{ matrix.python-version }}.xml
-    #     # Use always() to always run this step to publish test results when there are test failures
-    #     if: ${{ always() }}
 
     steps:
       - uses: actions/checkout@v3
@@ -50,5 +25,4 @@ jobs:
         with:
           name: pytest-results-${{ matrix.python-version }}
           path: ./build/sys_version${{ matrix.python-version }}.txt
-        # Use always() to always run this step to publish test results when there are test failures
         if: ${{ always() }}
